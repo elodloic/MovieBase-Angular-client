@@ -10,7 +10,7 @@ const apiUrl = 'https://moviebaseapi-a2aa3807c6ad.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
-export class UserRegistrationService {
+export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
   constructor(private http: HttpClient) {}
 
