@@ -1,28 +1,33 @@
-import { Component } from '@angular/core';
-import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'MovieBase-Angular-client';
+  showToolbar = true;
 
-  constructor(public dialog: MatDialog) { }
-// This is the function that will open the dialog when the signup button is clicked  
-openUserRegistrationDialog(): void {
-    this.dialog.open(UserRegistrationFormComponent, {
-// Assigning the dialog a width
-    width: '280px'
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    // Subscribe to router events to detect when we're on the /welcome route
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.showToolbar = event.url !== '/welcome';  // Hide toolbar on /welcome route
     });
   }
-  openUserLoginDialog(): void {
-    this.dialog.open(UserLoginFormComponent, {
-// Assigning the dialog a width
-    width: '280px'
-    });
+
+  logout(): void {
+    // Clear user authentication data
+    localStorage.clear();
+    // Redirect to welcome page
+    this.router.navigate(['/welcome']);
   }
 }
