@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{ dataContent?.Name || dataContent?.Title }}</h2>
+<mat-dialog-content>
+  <p *ngIf="data.type === 'genre'">{{ dataContent?.Description }}</p>
+  <p *ngIf="data.type === 'director'">
+    Bio: {{ dataContent?.Bio }} <br>
+    Born: {{ dataContent?.Birth }} <br>
+    <span *ngIf="dataContent?.Death">Died: {{ dataContent?.Death }}</span>
+  </p>
+  <p *ngIf="data.type === 'movie'">
+    <img [src]="dataContent?.ImagePath" alt="{{ dataContent?.Title }}" />
+    <br>
+    Synopsis: {{ dataContent?.Description }} <br>
+    Genre: {{ dataContent?.Genre }} <br>
+    Director: {{ dataContent?.Director.Name }}
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

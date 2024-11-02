@@ -1,1 +1,61 @@
-<p>user-profile works!</p>
+<div class="profile-view">
+    <h2>Profile</h2>
+  
+    <mat-form-field *ngIf="isEditing">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="user.Username" name="Username" />
+    </mat-form-field>
+    <p *ngIf="!isEditing"><strong>Username:</strong> {{ user.Username }}</p>
+  
+    <mat-form-field *ngIf="isEditing">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="user.Email" name="Email" />
+    </mat-form-field>
+    <p *ngIf="!isEditing"><strong>Email:</strong> {{ user.Email }}</p>
+  
+    <mat-form-field *ngIf="isEditing">
+      <mat-label>Birthday</mat-label>
+      <input matInput type="date" [(ngModel)]="user.Birthday" name="Birthday" />
+    </mat-form-field>
+    <p *ngIf="!isEditing"><strong>Birthday:</strong> {{ user.Birthday | date }}</p>
+
+
+  
+    <button mat-raised-button color="primary" *ngIf="isEditing" (click)="saveProfile()">Save</button>
+    <button mat-raised-button color="primary" *ngIf="!isEditing" (click)="editProfile()">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteAccount()">Delete Account</button>
+  
+    <br>
+    <br>
+
+
+    <!-- Password Change Section -->
+    <div *ngIf="isChangingPassword">
+      <h3>Change Password</h3>
+      <mat-form-field>
+        <mat-label>New Password</mat-label>
+        <input matInput type="password" [(ngModel)]="newPassword" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" [(ngModel)]="confirmPassword" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="changePassword()">Save New Password</button>
+    </div>
+  
+    <h3>Your Favorite Movies</h3>
+    <div *ngIf="favoriteMovies.length > 0; else noFavorites">
+      <mat-grid-list cols="3" rowHeight="350px">
+        <mat-grid-tile *ngFor="let movie of movies" [hidden]="!favoriteMovies.includes(movie.id)">
+          <img [src]="movie.ImagePath" alt="{{ movie.Title }}" />
+          <mat-grid-tile-footer>
+            <h4>{{ movie.Title }}</h4>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <ng-template #noFavorites>
+      <p>You have no favorite movies yet.</p>
+    </ng-template>
+  </div>
+  

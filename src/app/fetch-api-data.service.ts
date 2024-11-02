@@ -148,15 +148,21 @@ public updateUser(userDetails: any): Observable<any> {
 public deleteUser(userDetails: any): Observable<any> {
   const token = localStorage.getItem('token');
   const username = userDetails.Username;
-  return this.http.delete(`${apiUrl}users/${username}`, {
-    headers: new HttpHeaders({
-      Authorization: 'Bearer ' + token
-    })
-  }).pipe(
-    map(this.extractResponseData),
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+
+  return this.http.delete(`${apiUrl}users/${username}`, { headers, responseType: 'text' }).pipe(
+    map(response => {
+      // The response will be a plain text message
+      return { message: response }; // or simply return response;
+    }),
     catchError(this.handleError)
   );
 }
+
+
+
 
 // Remove movie from user favorites
 public removeFavoriteMovie(userDetails: any, movieID: string): Observable<any> {
@@ -174,7 +180,7 @@ public removeFavoriteMovie(userDetails: any, movieID: string): Observable<any> {
 
   // Non-typed response extraction
   private extractResponseData(res: any): any {
-    return res || {};
+    return res ? res : {};  // Return empty object if no data
   }
 
   // Error handling
