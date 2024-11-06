@@ -63,7 +63,7 @@ public getOneMovie(title: string): Observable<any> {
 // Get director description
 public getDirector(director: string): Observable<any> {
   const token = localStorage.getItem('token');
-  return this.http.get(`${apiUrl}movies/director/${encodeURIComponent(director)}`, {
+  return this.http.get(`${apiUrl}movies/directors/${encodeURIComponent(director)}`, {
     headers: new HttpHeaders({
       Authorization: 'Bearer ' + token
     })

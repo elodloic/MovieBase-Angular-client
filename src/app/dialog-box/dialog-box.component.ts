@@ -20,9 +20,7 @@ export class DialogBoxComponent {
   loadData(type: string, value: string): void {
     switch (type) {
       case 'genre':
-        this.fetchApiData.getGenre(value).subscribe((resp: any) => {
-          this.dataContent = resp;
-        });
+        this.dataContent = value;
         break;
       case 'director':
         this.fetchApiData.getDirector(value).subscribe((resp: any) => {
