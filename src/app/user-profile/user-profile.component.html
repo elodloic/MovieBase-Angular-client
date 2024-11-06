@@ -21,11 +21,11 @@
   <p *ngIf="!isEditing"><strong>Birthday:</strong> {{ user.Birthday | date }}</p>
 
   <!-- Action Buttons -->
-  <button mat-raised-button color="primary" *ngIf="isEditing" (click)="saveProfile()">Save</button>
-  <button mat-raised-button color="primary" *ngIf="!isEditing" (click)="editProfile()">Edit</button>
-  <button mat-raised-button color="warn" (click)="deleteAccount()">Delete Account</button>
-
-  <br><br>
+  <div class="profilebuttons">
+    <button mat-raised-button color="primary" *ngIf="isEditing" (click)="saveProfile()">Save</button>
+    <button mat-raised-button color="primary" *ngIf="!isEditing" (click)="editProfile()">Edit</button>
+    <button class="delete-button" mat-raised-button color="warn" (click)="deleteAccount()">Delete Account</button>
+  </div>
 
   <!-- Password Change Section -->
   <div *ngIf="isChangingPassword">
@@ -42,7 +42,7 @@
   </div>
 
   <!-- Favorite Movies Section -->
-  <h3>Your Favorite Movies</h3>
+  <h2>Your Favorite Movies</h2>
 
   <!-- Loading State -->
   <div *ngIf="isLoadingFavorites">Loading your favorite movies list...</div>

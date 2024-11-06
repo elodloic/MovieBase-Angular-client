@@ -7,9 +7,6 @@
     margin-bottom: 10px;
   }
   
-  mat-grid-list {
-    margin-top: 20px;
-  }
   
   .red-icon {
     color: red;
@@ -21,4 +18,16 @@
   
   .favorite-movie-card {
     max-width: 300px;
+  }
+
+  .delete-button {
+    margin-left: 10px;
+  }
+
+  .profilebuttons {
+    margin-bottom: 35px;
+  }
+
+  .mat-grid-list {
+    margin-top: -30px;
   }
