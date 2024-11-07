@@ -1,10 +1,9 @@
-<h2 mat-dialog-title>{{ dataContent?.Name || dataContent?.Title || dataContent.Director.Name }}</h2>
+<h2 mat-dialog-title>{{ dataContent?.Name || dataContent?.Title || dataContent?.Director.Name }}</h2>
 <mat-dialog-content>
   <p *ngIf="data.type === 'genre'">{{ dataContent?.Description }}</p>
   <p *ngIf="data.type === 'director'">
     Born: {{ dataContent?.Director.Birth }} <br>
     Bio: {{ dataContent?.Director.Bio }} <br>
-    <span *ngIf="dataContent?.Death">Died: {{ dataContent?.Death }}</span>
   </p>
   <p *ngIf="data.type === 'movie'">{{ dataContent?.Description }}
   </p>

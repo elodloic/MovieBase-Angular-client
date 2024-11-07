@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
   favoriteMovieIds: string[] = [];
   favoriteMovies: any[] = [];
   movies: any[] = [];
-  isLoadingFavorites = true; // Loading state flag
+  isLoadingFavorites = true;
   isEditing = false;
   isChangingPassword = false;
   newPassword = '';
@@ -77,8 +77,6 @@ export class UserProfileComponent implements OnInit {
       });
     });
   }
-
-
 
   // Enable editing mode
   editProfile(): void {

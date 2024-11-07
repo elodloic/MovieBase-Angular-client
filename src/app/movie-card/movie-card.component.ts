@@ -12,7 +12,7 @@ import { ResponsiveService } from '../responsive-columns.service';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
-  cols: number = 5;
+  cols: number = 5;  //default value, adjusted by responsive columns service
   favoriteMovieIds: string[] = [];
 
   constructor(

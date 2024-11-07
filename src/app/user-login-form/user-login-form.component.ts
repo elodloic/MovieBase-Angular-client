@@ -22,7 +22,7 @@ constructor(
 ngOnInit(): void {
 }
 
-// This is the function responsible for sending the form inputs to the backend
+// Function responsible for sending the form inputs to the backend
 loginUser(): void {
     this.FetchApiDataService.userLogin(this.loginData).subscribe((result) => {
       localStorage.setItem("user", JSON.stringify(result.user));  // Storing the user in the local storage
