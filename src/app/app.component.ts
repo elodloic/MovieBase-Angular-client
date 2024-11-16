@@ -7,6 +7,11 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+/**
+ * Main component
+ * Displays content components, navbar and handles user logout.
+ * @class AppComponent
+ */
 export class AppComponent implements OnInit {
   title = 'MovieBase-Angular-client';
   showToolbar = true;

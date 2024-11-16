@@ -6,6 +6,11 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
 })
+/**
+ * Dialog box component
+ * Used for modals to display more information about a movie, genre, or director.
+ * @class UserLoginFormComponent
+ */
 export class DialogBoxComponent {
   dataContent: any;
 

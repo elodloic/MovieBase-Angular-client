@@ -5,7 +5,12 @@ import { Observable, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ResponsiveService {
+/**
+ * Service to detect the device's screen width.
+ * Adjusts material grid columns accordingly to create a responsive layout.
+ * @class FetchApiDataService
+ */
+export class ResponsiveColumnsService {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   // Observable for columns based on screen size

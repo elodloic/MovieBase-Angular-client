@@ -2,13 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ResponsiveService } from '../responsive-columns.service'; 
+import { ResponsiveColumnsService } from '../responsive-columns.service'; 
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+/**
+ * User profile component
+ * Displays user details and favorite movies and allows user to edit these.
+ * @class UserLoginFormComponent
+ */
 export class UserProfileComponent implements OnInit {
   cols: number = 5;
   user: any = {};
@@ -25,7 +30,7 @@ export class UserProfileComponent implements OnInit {
     private fetchApiData: FetchApiDataService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private responsiveService: ResponsiveService
+    private responsiveService: ResponsiveColumnsService
   ) {}
 
   ngOnInit(): void {

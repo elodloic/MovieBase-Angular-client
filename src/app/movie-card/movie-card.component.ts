@@ -3,13 +3,18 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ResponsiveService } from '../responsive-columns.service';
+import { ResponsiveColumnsService } from '../responsive-columns.service';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
+/**
+ * Movie Card component
+ * Displays all movies in separate content cards arranged in a grid.
+ * @class UserLoginFormComponent
+ */
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   cols: number = 5;  //default value, adjusted by responsive columns service
@@ -19,7 +24,7 @@ export class MovieCardComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     private dialog: MatDialog,
     public snackBar: MatSnackBar,
-    private responsiveService: ResponsiveService
+    private responsiveService: ResponsiveColumnsService
   ) {}
 
   ngOnInit(): void {

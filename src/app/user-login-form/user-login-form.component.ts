@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.scss']
 })
+/**
+ * Login form component
+ * Contains the login function and stores the user and token in local storage.
+ * @class UserLoginFormComponent
+ */
 export class UserLoginFormComponent implements OnInit {
 
   @Input() loginData = { Username: '', Password: '' };
